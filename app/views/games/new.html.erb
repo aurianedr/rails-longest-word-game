@@ -1,0 +1,12 @@
+<div class = "m-5">
+  <h1 class = "p-2"> New game </h1>
+  <p> <%= @letters %> </p>
+  <p class ="fst-italic"> What is the longest word you can find ? </p>
+
+  <form action="score" data-turbo="false" method="POST">
+    <input type="text" name="word" class ="w-200">
+    <input type="submit" value="play">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters.join %>
+  </form>
+</div>
